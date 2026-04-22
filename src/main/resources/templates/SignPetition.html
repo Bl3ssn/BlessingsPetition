@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 th:text="${petition.title}"></h1>
+<p><strong>Posted by:</strong> <span th:text="${petition.creatorName}"></span></p>
+<p th:text="${petition.description}"></p>
+
+<hr>
+<h3>Sign this Petition</h3>
+<form>
+    <input type="text" placeholder="Your Full Name" required><br><br>
+    <input type="email" placeholder="Your Email Address" required><br><br>
+    <button type="button" onclick="alert('Thank you for signing!')">Sign Petition</button>
+</form>
+<br>
+<a href="/petitions">Back to Home</a>
+</body>
+</html>
