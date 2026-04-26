@@ -35,6 +35,7 @@ pipeline {
          stage('Approve Deploy') {
              steps {
                 input message: 'Do you want to deploy?', ok: 'Deploy'
+                echo "moving to deployment stage"
              }
          }
 
@@ -42,6 +43,7 @@ pipeline {
             steps {
                 echo "Starting deployment..."
                 sh "sudo cp target/${app_name} /opt/tomcat/webapps/"
+
             }
         }
     }
