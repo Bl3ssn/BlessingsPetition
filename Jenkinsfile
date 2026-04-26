@@ -42,10 +42,16 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Starting deployment..."
-                sh "sudo cp target/${app_name} /opt/tomcat/webapps/"
-
+                sh '''
+                    sudo systemctl stop tomcat
+                    sudo rm -rf /opt/tomcat/webapps/blessingspetitions
+                    sudo rm -f /opt/tomcat/webapps/blessingspetitions.war
+                    sudo cp target/blessingspetitions.war /opt/tomcat/webapps/
+                    sudo systemctl start tomcat
+                '''
             }
         }
+
     }
 
         post {
