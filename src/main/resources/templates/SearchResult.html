@@ -7,7 +7,7 @@
 <body>
 <h1>Search Results for: <span th:text="${searchQuery}"></span></h1>
 <div th:if="${#lists.isEmpty(results)}">
-    <p>No petitions found matching that title.</p>
+    <p>No petition found matching that title.</p>
 </div>
 <ul>
     <li th:each="result : ${results}">
