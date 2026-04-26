@@ -32,26 +32,14 @@ pipeline {
             }
         }
 
-         stage('Approve Deploy') {
-             steps {
-                input message: 'Do you want to deploy?', ok: 'Deploy'
-                echo "moving to deployment stage"
-             }
-         }
 
         stage('Deploy') {
             steps {
                 echo "Starting deployment..."
-                sh '''
-                    sudo systemctl stop tomcat
-                    sudo rm -rf /opt/tomcat/webapps/blessingspetitions
-                    sudo rm -f /opt/tomcat/webapps/blessingspetitions.war
-                    sudo cp target/blessingspetitions.war /opt/tomcat/webapps/
-                    sudo systemctl start tomcat
-                '''
+                sh "sudo cp target/${app_name} /opt/tomcat/webapps/"
+
             }
         }
-
     }
 
         post {
