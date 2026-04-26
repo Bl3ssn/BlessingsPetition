@@ -32,12 +32,12 @@ pipeline {
             }
         }
 
-         stage('Approve Deploy') {
-             steps {
-                input message: 'Do you want to deploy?', ok: 'Deploy'
-                echo "moving to deployment stage"
-             }
-         }
+//         stage('Approve Deploy') {
+//             steps {
+//                input message: 'Do you want to deploy?', ok: 'Deploy'
+//                echo "moving to deployment stage"
+//             }
+//         }
 
         stage('Deploy') {
             steps {
