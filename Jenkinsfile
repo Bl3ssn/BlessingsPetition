@@ -38,6 +38,7 @@ pipeline {
                 sh "sudo cp target/${app_name} /opt/tomcat/webapps/"
             }
         }
+    }
 
         post {
              success {
@@ -47,5 +48,5 @@ pipeline {
                         echo 'Pipeline failed!'
             }
        }
-    }
+
 }
