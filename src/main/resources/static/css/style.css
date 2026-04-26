@@ -1,0 +1,176 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: lightgreen;
+    color: #2c3e50;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    line-height: 1.6;
+}
+
+nav {
+    background: #ffffff;
+    padding: 16px 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+nav a {
+    background: transparent;
+    color: #3498db;
+    padding: 8px 14px;
+    margin: 0 5px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    background: #3498db;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 2.4rem;
+    color: #1f3a5f;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #3498db;
+    margin: 12px auto 0;
+    border-radius: 10px;
+}
+
+.petition-card {
+    background: #ffffff;
+    margin: 18px 0;
+    padding: 22px;
+    border-radius: 16px;
+    border-left: 6px solid #3498db;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.petition-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.petition-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.petition-card h3 a {
+    background: none;
+    color: #1f3a5f;
+    padding: 0;
+    font-size: 1.3rem;
+}
+
+.petition-card h3 a:hover {
+    color: #3498db;
+    background: none;
+}
+
+.petition-card p {
+    margin: 0;
+    color: #667085;
+}
+
+a,
+button {
+    display: inline-block;
+    background: #3498db;
+    color: #ffffff;
+    padding: 11px 22px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 6px 0;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+a:hover,
+button:hover {
+    background: #217dbb;
+    transform: translateY(-2px);
+}
+
+form {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 13px 14px;
+    margin-bottom: 14px;
+    border: 1px solid #d0d7de;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #f9fbfd;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+strong {
+    color: #1f3a5f;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 14px;
+    }
+
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .petition-card {
+        padding: 18px;
+    }
+}

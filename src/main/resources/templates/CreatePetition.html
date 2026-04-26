@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Petition</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 <body>
+
+<nav>
+    <a href="/petitions">Home</a>
+    <a href="/petitions/create">Create Petition</a>
+    <a href="/petitions/search">Search</a>
+</nav>
+
 <h1>Start a New Petition</h1>
+
 <form th:action="@{/petitions/save}" th:object="${petition}" method="post">
-    <label>Title:</label><br>
-    <input type="text" th:field="*{title}" required><br><br>
 
-    <label>Description:</label><br>
-    <textarea th:field="*{description}" required></textarea><br><br>
+    <label for="title">Title</label>
+    <input type="text" id="title" th:field="*{title}" placeholder="Enter petition title" required>
 
-    <label>Your Name:</label><br>
-    <input type="text" th:field="*{creatorName}" required><br><br>
+    <label for="description">Description</label>
+    <textarea id="description" th:field="*{description}" placeholder="Describe your petition..." required></textarea>
+
+    <label for="creatorName">Your Name</label>
+    <input type="text" id="creatorName" th:field="*{creatorName}" placeholder="Enter your name" required>
 
     <button type="submit">Publish Petition</button>
+
 </form>
-<br>
-<a href="/petitions">Back to List</a>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a href="/petitions">← Back to Petitions</a>
+</div>
+
 </body>
 </html>

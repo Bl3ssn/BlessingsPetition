@@ -1,40 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
-<head>
-    <title>Blessing's Petitions</title>
-    <link rel="stylesheet" th:href="@{/static/style.css}">
-</head>
-<body>
-<nav>
-    <a href="/petitions">Home</a> |
-    <a href="/petitions/create">Create Petition</a> |
-    <a href="/petitions/search">Search</a>
-</nav>
-
-<h1>All Petitions</h1>
-<div th:each="p : ${petitions}" class="petition-card">
-    <h3><a th:href="@{'/petitions/' + ${p.id}}" th:text="${p.title}"></a></h3>
-    <p>Started by: <strong th:text="${p.creatorName}"></strong></p>
-</div>
-</body>
-</html>
-<!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Blessing's Petitions</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+
 <nav>
-    <a href="/petitions">Home</a> |
-    <a href="/petitions/create">Create Petition</a> |
+    <a href="/petitions">Home</a>
+    <a href="/petitions/create">Create Petition</a>
     <a href="/petitions/search">Search</a>
 </nav>
 
 <h1>All Petitions</h1>
+
 <div th:each="p : ${petitions}" class="petition-card">
-    <h3><a th:href="@{'/petitions/' + ${p.id}}" th:text="${p.title}"></a></h3>
+    <h3>
+        <a th:href="@{'/petitions/' + ${p.id}}" th:text="${p.title}"></a>
+    </h3>
     <p>Started by: <strong th:text="${p.creatorName}"></strong></p>
 </div>
+
 </body>
 </html>

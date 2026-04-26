@@ -25,7 +25,6 @@ public class PetitionService {
         return petition;
     }
 
-    //find by ID
     public Optional<Petition> findById(Long id) {
         for (Petition p : petitions) {
             if (p.getId().equals(id)) {
@@ -35,12 +34,10 @@ public class PetitionService {
         return Optional.empty();
     }
 
-    //  search by Title
     public List<Petition> searchByTitle(String title) {
         List<Petition> results = new ArrayList<>();
         for (Petition p : petitions) {
 
-            // Check if the title contains the search word (ignoring case)
             if (p.getTitle().toLowerCase().contains(title.toLowerCase())) {
                 results.add(p);
             }

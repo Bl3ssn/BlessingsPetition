@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
 <body>
 <h1>Search Results for: <span th:text="${searchQuery}"></span></h1>
 <div th:if="${#lists.isEmpty(results)}">
