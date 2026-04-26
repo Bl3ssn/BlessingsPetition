@@ -1,25 +1,21 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'Java17'
-        maven 'Maven3'
-    }
-
     environment {
-        WAR_NAME = "blessingspetitions.war"
+        app_name = "blessingspetitions.war"
     }
 
     stages {
         stage('Get Code') {
             steps {
-                checkout scm
+                echo 'copy code from GitHub'
             }
         }
 
         stage('Build') {
             steps {
                 sh 'mvn clean compile'
+
             }
         }
 
@@ -32,23 +28,23 @@ pipeline {
 
         stage('Package') {
             steps {
-                sh 'mvn package -DskipTests'
-
-                sh "mv target/*.war target/${WAR_NAME}"
-                archiveArtifacts artifacts: "target/${WAR_NAME}", fingerprint: true
+                sh 'mvn package'
             }
         }
 
         stage('Deploy') {
             steps {
-
-                sh 'docker stop blessings-app || true'
-                sh 'docker rm blessings-app || true'
-
-                sh 'docker run -d -p 9090:8080 --name blessings-app tomcat:9.0'
-
-                sh "docker cp target/${WAR_NAME} blessings-app:/usr/local/tomcat/webapps/"
+                echo "Starting deployment..."
+                sh "sudo cp target/${app_name} /opt/tomcat/webapps/"
             }
         }
+
+        post {
+             success {
+                        echo 'Pipeline successful!'
+             }
+             failure {
+                        echo 'Pipeline failed!'
+            }
     }
 }
