@@ -32,6 +32,12 @@ pipeline {
             }
         }
 
+         stage('Approve Deploy') {
+             steps {
+                input message: 'Do you want to deploy?', ok: 'Deploy'
+             }
+         }
+
         stage('Deploy') {
             steps {
                 echo "Starting deployment..."
